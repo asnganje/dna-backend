@@ -1,7 +1,13 @@
+require('dotenv').config()
 const express = require('express')
 const app = express()
+const userRoute = require('./server/routes/userRoutes')
 
-const port = 3000;
+app.use(express.json())
+app.use('api/v1/dna', userRoute)
+
+const port = process.env.PORT;
+
 
 const start = () => {
     try {
