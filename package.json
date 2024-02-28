@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/asnganje/dna-backend/issues"
   },
-  "homepage": "https://github.com/asnganje/dna-backend#readme"
+  "homepage": "https://github.com/asnganje/dna-backend#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
