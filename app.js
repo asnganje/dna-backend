@@ -4,7 +4,7 @@ const app = express()
 const userRoute = require('./server/routes/userRoutes')
 
 app.use(express.json())
-app.use('api/v1/dna', userRoute)
+app.use('/api/v1/dna', userRoute)
 
 const port = process.env.PORT;
 
