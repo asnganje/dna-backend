@@ -1,5 +1,6 @@
 const User = require("../models/User")
 const nodemailer = require('nodemailer')
+require('dotenv').config()
 
 const mailSender = nodemailer.createTransport({
     service: 'gmail',
@@ -8,7 +9,7 @@ const mailSender = nodemailer.createTransport({
     secure: true,
     auth: {
      user: 'aufnganje002@gmail.com',
-     pass: 'wfyb ejra viay sdhm',
+     pass: process.env.KEY,
     },
 })
 
