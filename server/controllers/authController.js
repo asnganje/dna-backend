@@ -54,12 +54,12 @@ const signup = async (req, res) => {
 const login = async (req, res) => {
     
     try {
-        const {phone, email, authenticationNumber} = req.body
+        const {id, email, authenticationNumber} = req.body
         let user;
         if(email) {
             user = await User.findOne({email, authenticationNumber})
         } else if(phone) {
-            user = await User.findOne({phone, authenticationNumber})
+            user = await User.findOne({id, authenticationNumber})
         } else {
             res.status(404).json({
                 status: 'fail',
