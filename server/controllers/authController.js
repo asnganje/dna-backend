@@ -46,7 +46,7 @@ const signup = async (req, res) => {
     } catch (error) {
         res.status(500).json({
             status: 'fail',
-            msg: `Internal server error...${error}`
+            msg: `${error}`
         })
     }
 }
@@ -82,11 +82,46 @@ const login = async (req, res) => {
     } catch (error) {
         res.status(500).json({
             status: 'fail',
-            msg: `Internal server error...${error}`
+            msg: `${error}`
+        })
+    }
+}
+
+const updateUser = async (req,res) => {
+    const _id = req.params.id
+    try {
+        const newUser = await User.findByIdAndUpdate(_id, req.body, {
+            new: true,
+            runValidators: true,
+        })
+        res.status(200).json({
+            status: 'success',
+            msg: newUser
+        })
+    } catch (error) {
+        res.status(500).json({
+            status: 'fail',
+            msg: `${error}`
+        })
+    }
+}
+
+const deleteUser = async (req,res) => {
+    const _id = req.params.id;
+    try {
+        await User.findByIdAndDelete(_id)
+        res.status(200).json({
+            status: 'success',
+            msg: "Deletion successfully done"
+        })
+    } catch (error) {
+        res.status(404).json({
+            status: 'fail',
+            msg: error
         })
     }
 }
 
 module.exports = {
-    login, signup
+    login, signup, updateUser, deleteUser
 }
