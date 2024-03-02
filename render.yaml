@@ -1,0 +1,6 @@
+services:
+  - name: dnaBackend
+    type: web
+    envVarsFile: .env
+    buildCommand: npm install
+    startCommand: npm start
